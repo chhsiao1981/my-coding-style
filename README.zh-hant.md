@@ -22,14 +22,26 @@
     * 可能的例外：像 bash 腳本，整個程式通常 < 30 行（剛好一個螢幕）。
 2. 盡量避免 [縮排波動拳](https://www.reddit.com/r/ProgrammerHumor/comments/27yykv/indent_hadouken/) 的 coding style。
     * (顯而易見)
-3. 如果可以的話，盡量使用以下 defensive programming style 來符合第 2 點。
+3. 如果可以的話，**審慎地**處理錯誤處理！
+    * 除非你有把握，並且明確註明 `XXX SILENT DEATH` 註解，否則絕對不要 "silent death"。
+    * 然而，"return if error" 的策略並不總是有效（大概只有 50% 的情況有效）！
+    * 如果不讓程式碼處理錯誤，最後就會變成你人工處理錯誤！
+4. 若可行，使用 `error-code` 而非 `try-catch`.
+    * `try-catch` 很容易造成額外縮排（第 2 點）。
+    * 因為這個問題，很容易最後只剩下 "return if error" 的模式。
+    * 如果可以的話，請遵循 golang 的錯誤碼風格（以便跨語言一致）。
+    * 對於只能使用 `try-catch` 的語言：如果可以的話，替 libs 有 `try-catch` functions 寫相對應的 functions ，並轉換成 error-code 風格。希望回傳的 `error-code` 可以優雅地使用 list-comprehension 風格，而不是作為 return struct 的一部分（我真的不喜歡 `rust`）。
+5. **永遠**使用 `golang` 風格的 `error-code`，絕對不要使用 `!` 或 `?`（如 `ts` 或 `rust`）。
+    * `!` 或 `?` 是懶人的工具！
+    * 因為偷懶，習慣用 `!` 或 `?` 的人通常只會用 "return if error" 風格，且不願意修改程式碼。
+6. 如果可以的話，盡量使用以下 defensive programming style 來符合第 2 至 5 點。
     * 在某些情況（依我的經驗非常少）下，我們無法使用這種風格。例如需要做一些中途檢查時。請明智地使用這種 coding style。
 ```
 def f():
     if [error]:
-        return error
+        [deal-with and return error]
     if [error]:
-        return error
+        [deal-with and return error]
     .
     .
     .
@@ -40,18 +52,6 @@ def f():
     .
     return ret
 ```
-4. 如果可以的話，**審慎地**處理錯誤處理！
-    * 除非你有把握，並且明確註明 `XXX SILENT DEATH` 註解，否則絕對不要 "silent death"。
-    * 然而，"return if error" 的策略並不總是有效（大概只有 50% 的情況有效）！
-    * 如果不讓程式碼處理錯誤，最後就會變成你人工處理錯誤！
-5. 若可行，使用 `error-code` 而非 `try-catch`.
-    * `try-catch` 很容易造成額外縮排（第 2 點）。
-    * 因為這個問題，很容易最後只剩下 "return if error" 的模式。
-    * 如果可以的話，請遵循 golang 的錯誤碼風格（以便跨語言一致）。
-    * 對於只能使用 `try-catch` 的語言：如果可以的話，替 libs 有 `try-catch` functions 寫相對應的 functions ，並轉換成 error-code 風格。希望回傳的 `error-code` 可以優雅地使用 list-comprehension 風格，而不是作為 return struct 的一部分（我真的不喜歡 `rust`）。
-6. **永遠**使用 `golang` 風格的 `error-code`，絕對不要使用 `!` 或 `?`（如 `ts` 或 `rust`）。
-    * `!` 或 `?` 是懶人的工具！
-    * 因為偷懶，習慣用 `!` 或 `?` 的人通常只會用 "return if error" 風格，且不願意修改程式碼。
 7. modules + functions，而非 class inheritance / function overloading。
     * 就像 `C++`，class inheritance 是許多災難的來源～
     * Type template 是可以用的，因為仍然容易追蹤細節。唯一的差別是我們不想因為 type 不同就重複寫同樣的函式。

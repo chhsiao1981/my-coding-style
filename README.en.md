@@ -22,14 +22,26 @@ Unless necessary with specified:
     * Possible exception: like `bash`-scripts, typically < 30 lines (fitting a screen) for the whole program.
 2. As least [Indent Hadouken](https://www.reddit.com/r/ProgrammerHumor/comments/27yykv/indent_hadouken/) coding style as possible.
     * (trivial)
-3. If possible, use the following defensive programming style as much as possible to meet 2.
+3. If possible, **Thoughtfully** dealing with error handling！
+    * **NEVER** "silent death" unless feeling confident and specified that it's ok to do so with `XXX SLIENT DEATH` comments！
+    * However, "return if error" strategy does not always work (works only around 50% of the time)！
+    * If you don't let your code handle the error, it will be you **manually** handling the error!
+4. If possible, use `error-code` instead of `try-catch`.
+    * Very easy to create an additional indent for the `try-catch` style (meet 2).
+    * Because of the previous issue, it's very easy ending up with only the "return if error" pattern.
+    * If possible, follow `golang` error code style (to be consistent across lang).
+    * For the languages with only `try-catch`: if possible, have the corresponding functions for the libs doing `try-catch` and converting to `error-code` style. Hope that the returned `error-code` can be elegantly in the list-comprehension style, but not part of the returned struct (I don't really like `rust`).
+5. **ALWAYS** use `golang`-style `error-code`, **NEVER** `!` or `?` (by `ts` or `rust`).
+    * `!` or `?` are for lazy people!
+    * Due to laziness, it's very easy that the people who used to `!` or `?` do only "return if error" style and not want to change the code.
+6. If possible, use the following defensive programming style as much as possible to meet Point 2-5.
     * In some cases (few cases in my experience), we cannot do such kind of programming style. For example, we may need to do some mid-process-check. Use this coding style **Wisely**.
 ```
 def f():
     if [error]:
-        return error
+        [deal-with and return error]
     if [error]:
-        return error
+        [deal-with and return error]
     .
     .
     .
@@ -40,19 +52,6 @@ def f():
     .
     return ret
 ```
-
-4. If possible, **Thoughtfully** dealing with error handling！
-    * **NEVER** "silent death" unless feeling confident and specified that it's ok to do so with `XXX SLIENT DEATH` comments！
-    * However, "return if error" strategy does not always work (works only around 50% of the time)！
-    * If you don't let your code handle the error, it will be you **manually** handling the error!
-5. If possible, use `error-code` instead of `try-catch`.
-    * Very easy to create an additional indent for the `try-catch` style (meet 2).
-    * Because of the previous issue, it's very easy ending up with only the "return if error" pattern.
-    * If possible, follow `golang` error code style (to be consistent across lang).
-    * For the languages with only `try-catch`: if possible, have the corresponding functions for the libs doing `try-catch` and converting to `error-code` style. Hope that the returned `error-code` can be elegantly in the list-comprehension style, but not part of the returned struct (I don't really like `rust`).
-6. **ALWAYS** use `golang`-style `error-code`, **NEVER** `!` or `?` (by `ts` or `rust`).
-    * `!` or `?` are for lazy people!
-    * Due to laziness, it's very easy that the people who used to `!` or `?` do only "return if error" style and not want to change the code.
 7. modules + functions instead of class inheritance/function overloading.
     * Like C++, class inheritance is the cause of many disasters～
     * Type template is ok to use, because it's still easy to trace the details. The only difference is that we don't want to write the same function twice just because of the different types.

@@ -39,9 +39,17 @@ Unless necessary with specified:
 ```
 def f():
     if [error]:
-        [deal-with and return error]
+        [return error, with optionally primitively deal-with (ex. error-log)]
     if [error]:
-        [deal-with and return error]
+        [return error, with optionally primitively deal-with (ex. error-log)]
+    .
+    .
+    .
+
+    if [manageable error]:
+        [deal with the error]
+    if [manageable error]:
+        [deal with the error]
     .
     .
     .
@@ -50,6 +58,7 @@ def f():
     .
     .
     .
+
     return ret
 ```
 7. modules + functions instead of class inheritance/function overloading.

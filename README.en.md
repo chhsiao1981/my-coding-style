@@ -25,10 +25,11 @@ Unless necessary with specified, we **SHOULD** follow the following coding style
     * The process of writing a program is the same as writing an academic paper！
 3. As least [Indent Hadouken](https://www.reddit.com/r/ProgrammerHumor/comments/27yykv/indent_hadouken/) coding style as possible.
     * (trivial)
+    * reduce human cognitive loading and improve readability.
 4. If possible, **Thoughtfully** dealing with error handling！
     * **MUST NOT** "silent death" unless feeling confident and specified that it's ok to do so with `XXX SLIENT DEATH` comments！
     * However, "return if error" strategy does not always work (works only around 50% of the time)！
-    * If you don't let your code handle the error, it will be you **manually** handling the error!
+    * If you don't let your code handle the error, it will be you **Manually** handling the error!
 5. If possible, use `error-code` instead of `try-catch`.
     * Very easy to create an additional indent for the `try-catch` style (meet 3).
     * Because of the previous issue, it's very easy ending up with only the "return if error" pattern.
@@ -97,6 +98,9 @@ def [f()]:
 13. If possible, no "conditional import"
     * need to worry which are imported during run-time.
     * For `ts/js`, ok to do lazy-import if the app is too complicated.
+14. If possible, have type hinted.
+    * (trivial)
+    * excellent for editors nowadays.
 99. Unless specified in the previous items, try to follow the typical coding style (ex: snake_case / camelCase / CapitalCamelCase):
     * [PEP8](https://peps.python.org/pep-0008/), [Python packaging](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/)
     * [biome](https://biomejs.dev/)
@@ -104,4 +108,4 @@ def [f()]:
     * [Google C/C++ coding style](https://google.github.io/styleguide/cppguide.html)
 
 ### Terminology
-**MUST**, **MUST NOT**, and **SHOULD** can be referred to [RFC2119](https://datatracker.ietf.org/doc/html/rfc2119), with "Unless necessary with specified, we **SHOULD** follow the following coding style" as the precondition.
+With "Unless necessary with specified, we **SHOULD** follow the following coding style" as the precondition, **MUST**, **MUST NOT**, and **SHOULD** can be referred to [RFC2119](https://datatracker.ietf.org/doc/html/rfc2119).

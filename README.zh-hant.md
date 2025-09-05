@@ -25,6 +25,7 @@
     * 寫程式的過程跟寫學術論文的過程是完全一樣的！
 3. 盡量避免 [縮排波動拳](https://www.reddit.com/r/ProgrammerHumor/comments/27yykv/indent_hadouken/) 的 coding style。
     * (顯而易見)
+    * 減輕人類的認知負荷並增進易讀性。
 4. 如果可以的話，**經過審慎思考過地** 處理錯誤處理！
     * 除非你有把握，並且明確註明 `XXX SILENT DEATH` 註解，否則 **絕對不要** "silent death"。
     * 然而，"return if error" 的策略並不總是有效（大概只有 50% 的情況有效）！
@@ -97,6 +98,9 @@ def [f()]:
 13. 如果可以的話，不要使用 "conditional import"。
     * 這會導致在 runtime 時, 還需要擔心 import 了哪些。
     * 對於 `ts/js`，如果 app 過於複雜，可以使用 lazy-import。
+14. 如果可以的話，使用 type hinted 方式。
+    * (顯而易見)
+    * 這個年代對於程式編輯器是非常好的。
 99. 除非前面條款特別指定，否則盡量遵循典型的程式風格（例: snake_case / camelCase / CapitalCamelCase）：
     * [PEP8](https://peps.python.org/pep-0008/), [Python packaging](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/)
     * [biome](https://biomejs.dev/)
@@ -104,4 +108,4 @@ def [f()]:
     * [Google C/C++ coding style](https://google.github.io/styleguide/cppguide.html)
 
 ### 定義
-**一定要**, **絕對不要**, 和 **應該要** 是根據 [RFC2119](https://datatracker.ietf.org/doc/html/rfc2119), 並且是在 "除非必要並且特別標註的例外們, 我們 **應該要** 遵守以下的 coding style" 這個前提下.
+在 "除非必要並且特別標註的例外們, 我們 **應該要** 遵守以下的 coding style" 這個前提下, **一定要**, **絕對不要**, 和 **應該要** 是根據 [RFC2119](https://datatracker.ietf.org/doc/html/rfc2119).

@@ -4,7 +4,7 @@
 [Traditional Chinese](README.zh-hant.md)
 
 ## Introduction
-After collaborating with [some projects](https://github.com/FNNDSC/ChRIS_ultron_backEnd), I feel the need to clarify my coding style, to:
+After collaborating with some projects,<sup>[1](https://github.com/FNNDSC/ChRIS_ultron_backEnd),[2](https://github.com/chhsiao1981/react-reducer-utils),[3](https://github.com/Ptt-official-app/pttbbs-backend)</sup> I feel the need to clarify my coding style, to:
 * help the others understand my philosophy of coding style.
 * improve my coding style through the lifelong journey of collaborating with the others.
 

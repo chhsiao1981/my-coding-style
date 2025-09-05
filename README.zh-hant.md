@@ -4,7 +4,7 @@
 [Traditional Chinese](README.zh-hant.md)
 
 ## 簡介
-在與[一些 projects](https://github.com/FNNDSC/ChRIS_ultron_backEnd) 合作以後，我覺得有必要釐清我的 coding style，以便:
+在與一些 projects 合作以後,<sup>[1](https://github.com/FNNDSC/ChRIS_ultron_backEnd),[2](https://github.com/chhsiao1981/react-reducer-utils),[3](https://github.com/Ptt-official-app/pttbbs-backend)</sup> 我覺得有必要釐清我的 coding style，以便:
 * 幫助其他人理解我對 coding style 的哲學。
 * 人生中透過與其他人合作的方式, 來持續改進我的 coding style。
 

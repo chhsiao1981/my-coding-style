@@ -87,34 +87,34 @@ def [function-name]():
 
 fn [function-name]() -> Result<> {
     let ret1 = func1()
-      .or_else(|err| {
-        if [manageable err] {
-            [deal with the error]
-            Ok(recover1)
-        } else if [manageable err] {
-            [deal with the error]
-            Ok(recover1)
-        } ... {
-            ...
-        } else {
-            Err(err)
-        }
-      })?
+        .or_else(|err| {
+            if [manageable err] {
+                [deal with the error]
+                Ok(recover1)
+            } else if [manageable err] {
+                [deal with the error]
+                Ok(recover1)
+            } ... {
+                ...
+            } else {
+                Err(err)
+            }
+        })?
 
     let ret2 = func2()
-      .or_else(|err| {
-        if [manageable err] {
-            [deal with the error]
-            Ok(recover2)
-        } else if [manageable err] {
-            [deal with the error]
-            Ok(recover2)
-        } ... {
-            ...
-        } else {
-            Err(err)
-        }
-      })?
+        .or_else(|err| {
+            if [manageable err] {
+                [deal with the error]
+                Ok(recover2)
+            } else if [manageable err] {
+                [deal with the error]
+                Ok(recover2)
+            } ... {
+                ...
+            } else {
+                Err(err)
+            }
+        })?
 
     .
     .

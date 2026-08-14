@@ -46,6 +46,8 @@ Unless otherwise specified or necessary, we **SHOULD** follow the coding style d
     * In some cases (although rarely, in my experience), this style of programming is not practical. Use this approach **thoughtfully** in those cases.
 
 ```python
+# python
+
 def [function-name]():
     ret1, err = func1()
     if [manageable err]:
@@ -81,6 +83,8 @@ def [function-name]():
 ```
 
 ```rust
+//! rust
+
 fn [function-name]() -> Result<> {
     let ret1 = func1()
       .or_else(|err| {

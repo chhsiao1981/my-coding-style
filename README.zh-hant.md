@@ -46,6 +46,8 @@
     * 在某些情況（依我的經驗非常少）下，我們無法使用這種風格。例如需要做一些中途檢查時。請 **經過審慎思考過地** 使用這種 coding style。
 
 ```python
+# python
+
 def [function-name]():
     ret1, err = func1()
     if [manageable err]:
@@ -81,6 +83,8 @@ def [function-name]():
 ```
 
 ```rust
+//! rust
+
 fn [function-name]() -> Result<> {
     let ret1 = func1()
       .or_else(|err| {

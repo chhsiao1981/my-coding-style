@@ -131,6 +131,8 @@ fn [function-name]() -> Result<> {
     * `golang` style: prefer composition over class inheritance.
 
 8. The number of lines in a function **SHOULD** be fewer than 30.
+    * Comments and imports are counted as 0 lines (no cognitive load for the code).
+    * Multi-line-parameter functions are counted as 1 line (same cognitive load as 1-line-parameter functions).
     * A function should represent a single thought block.
     * We want to be able to understand the complete thought represented by a function when viewing it.
     * This can be easily achieved through divide-and-conquer.
@@ -150,7 +152,9 @@ def [f()]:
     * There should be only 1 primary purpose in each file.
     * Exception: utility files/modules.
 
-10. A file **SHOULD** contain fewer than 100 lines, excluding heading comments.
+10. A file **SHOULD** contain fewer than 100 lines.
+    * Comments and imports are counted as 0 lines.
+    * Multi-line-parameter functions are counted as 1 line (same cognitive load as 1-line-parameter functions).
     * This is consistent with Items 8 and 9.
     * For genuinely complicated files, fewer than 200 lines is acceptable.
 

@@ -131,6 +131,8 @@ fn [function-name]() -> Result<> {
     * `golang` style：composition instead of class inheritance。
 
 8. function 內的程式行數 **應該要** 限制 < 30 行。
+    * comments 和 imports: 0 行 (對於 code 沒有認知負擔).
+    * 多行 parameter 的 functions: 1 行 (跟 1 行 parameter 的 functions 是同樣的認知負擔).
     * 一個 function 被視為一個思考區塊。
     * 我們希望在閱讀這個 function 時能是一個完整的思考區塊。
     * 透過 divide-and-conquer，這很容易達成。
@@ -151,6 +153,8 @@ def [f()]:
     * Exception: utility files/modules.
 
 10. 每個 file **應該要** < 100 行（標頭註解不計算）。
+    * comments 和 imports: 0 行 (對於 code 沒有認知負擔).
+    * 多行 parameter 的 functions: 1 行 (跟 1 行 parameter 的 functions 是同樣的認知負擔).
     * 與第 8 與第 9 點一致。
     * 若真的很複雜，每個 file < 200 行。
 
